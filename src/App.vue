@@ -4,11 +4,25 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/fundamentals">Fundamentals</router-link> |
-      <router-link to="/components">Components</router-link>
+      <router-link to="/components">Components</router-link> |
+      <router-link to="/router">Router</router-link>
+    </div>
+    <div id="navigation">
+      <TheNavigation />
     </div>
     <router-view />
   </div>
 </template>
+<script>
+import TheNavigation from '@/components/TheNavigation';
+
+export default {
+  name: "App",
+  components: {
+    TheNavigation
+  },
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -17,6 +31,11 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#navigation {
+  padding-left: 350px;
+  margin-top: -20px;
 }
 
 #nav {
