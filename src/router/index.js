@@ -1,6 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Fundamentals from "../views/Fundamentals.vue";
+import Components from "../views/Components.vue";
 
 Vue.use(VueRouter);
 
@@ -19,6 +21,16 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
+  {
+    path: "/fundamentals",
+    name: "Fundamentals",
+    component: Fundamentals,
+  },
+  {
+    path: "/components",
+    name: "Components",
+    component: Components,
+  }
 ];
 
 const router = new VueRouter({
