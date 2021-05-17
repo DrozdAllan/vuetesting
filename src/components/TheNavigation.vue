@@ -1,9 +1,6 @@
 <template>
-  <nav>
-      <router-link to="/brazil">Brazil</router-link> | 
-      <router-link to="/panama">Panama</router-link> | 
-      <router-link to="/hawaii">Hawaii</router-link> | 
-      <router-link to="/jamaica">Jamaica</router-link>
+  <nav id="nav">
+
   </nav>
 </template>
 

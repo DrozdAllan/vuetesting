@@ -8,6 +8,8 @@ import Brazil from "../views/countries/Brazil.vue";
 import Hawaii from "../views/countries/Hawaii.vue";
 import Jamaica from "../views/countries/Jamaica.vue";
 import Panama from "../views/countries/Panama.vue";
+import NotFound from "../views/NotFound.vue";
+import Invoices from "../views/Invoices.vue";
 
 
 Vue.use(VueRouter);
@@ -62,10 +64,40 @@ const routes = [
     name: "Panama",
     component: Panama,
   },
+  {
+    path: "/details/:id",
+    name: "DestinationDetails",
+    component: () => import(/* webpackChunkName: "DestinationDetails" */ "../views/DestinationDetails" )
+  },
+  {
+    path: "/invoices",
+    name: "invoices",
+    component: Invoices,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/404",
+    alias:"*",
+    name: "notFound",
+    component: NotFound,
+  }
 ];
 
 const router = new VueRouter({
   routes,
+  scrollBehavior(to, from, savedPosition){
+    if(savedPosition){
+      return savedPosition
+    } else {
+      const position = {};
+      if(to.hash) {
+        position.selector = to.hash;
+        return false;
+      }
+    }
+  }
 });
 
 export default router;
